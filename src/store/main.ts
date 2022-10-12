@@ -15,21 +15,24 @@ export const useStore = defineStore('Main', {
         //叫出這個Data時    {{ store.counter }}
 
     }),
-    getters: { //computed
+    getters: { //computed  
+        // this 指向 store 本身
         loading: (state) => {
             state.isLoading = !state.isLoading;
         },
 
+
         doubleCount: (state) => state.counter * 2,
-        // this 指向 store 本身
+
         doubleCountPlusOne() {
             this.doubleCount + 1;
         }
     },
     actions: { //methods
-        loading(val: boolean) {
+        loadingAction(val: boolean) {
             this.isLoading = val
         },
+
         increment() {
             this.counter++;
         },

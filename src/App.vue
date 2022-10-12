@@ -2,6 +2,8 @@
   <div id="app"></div>
 
   <router-view v-loading="loading" />
+  <!-- <router-view /> -->
+
   <!-- <div @click="goRoute('Layout')">LAYOUT</div> -->
 </template>
 
@@ -15,8 +17,10 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "./store/main";
 const store = useStore();
+console.log(store, "STORE");
 
 const router = useRouter();
+
 const loading = store.isLoading;
 
 // let goRoute = (string: string) => {
@@ -24,11 +28,12 @@ const loading = store.isLoading;
 // };
 </script>
 
-<style scoped>
+<style>
 #app {
   width: 100%;
   height: 100%;
-  background-color: #fafafa;
+  background-color: white;
+  font-size: 16px;
 }
 .logo {
   height: 6em;
