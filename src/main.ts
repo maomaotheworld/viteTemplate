@@ -4,6 +4,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import ElementPlus from 'element-plus'
+import zhLang from 'element-plus/lib/locale/lang/zh-TW';
+
 import 'element-plus/dist/index.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 // font awesome
@@ -25,4 +27,4 @@ const app = createApp(App);
 for (const [name, comp] of Object.entries(ElementPlusIconsVue)) {
     app.component(name, comp);
 }
-app.use(router).use(ElementPlus).use(store).component("font-awesome-icon", FontAwesomeIcon).mount('#app')
+app.use(router).use(ElementPlus, { locale: { ...zhLang } }).use(store).component("font-awesome-icon", FontAwesomeIcon).mount('#app')
