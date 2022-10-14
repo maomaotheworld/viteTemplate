@@ -41,12 +41,14 @@ export default [
 
     },
     {
-        path: 'Report',
-        name: 'Report',
+        path: 'AboutView',
+        name: 'AboutView',
         meta: {
             icon: ' fa-house',
             label: '檢視報表',
         },
+        component: () => import(/* webpackChunkName: "AboutView" */ '../views/AboutView.vue'),
+
 
     },
     {
@@ -63,8 +65,9 @@ export default [
                 name: 'child21',
                 meta: {
                     icon: 'fa-home',
-                    label: '1號',
+                    label: '1號Index',
                 },
+                component: () => import(/* webpackChunkName: "child21" */ '../views/System/index.vue'),
 
             },
             {

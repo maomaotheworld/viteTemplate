@@ -20,7 +20,11 @@
               <span>{{ it.meta.label }}</span>
             </template>
             <template v-for="(it2, index2) in it.children">
-              <el-menu-item v-if="!it2.NotInMenu" :index="`${index}-${index2}`">
+              <el-menu-item
+                v-if="!it2.NotInMenu"
+                :index="`${index}-${index2}`"
+                @click="goRoute(it2.path)"
+              >
                 <i class="fa-regular fa-wand-magic-sparkles"></i>
                 <span> {{ it2.meta.label }}</span>
               </el-menu-item>
@@ -29,7 +33,11 @@
           <div class="line" v-if="index == MyMenu.length - 1"></div>
           <!-- no children -->
 
-          <el-menu-item v-if="!it.children" :index="index.toString()">
+          <el-menu-item
+            v-if="!it.children"
+            :index="index.toString()"
+            @click="goRoute(`${it.name}`)"
+          >
             <template #title>
               <i class="fa-regular" :class="it.meta.icon"></i>
               <span>{{ it.meta.label }}</span>
@@ -50,6 +58,14 @@ import {
   Setting,
 } from "@element-plus/icons-vue";
 import MyMenu from "./Menu";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+let goRoute = (string: string) => {
+  router.push({ name: string });
+  // router.push({ name: "AboutView" });
+};
 const isCollapse = ref(true);
 const handleOpen = (key: string, keyPath: string[]) => {
   console.log(key, keyPath);
@@ -91,6 +107,11 @@ const handleClose = (key: string, keyPath: string[]) => {
     color: rgb(77 125 193);
     // color: wheat;
     font-weight: 600;
+  }
+
+  .elMenu .is-active:before {
+    height: 0px;
+    width: 0px;
   }
 
   .elMenu .is-active:after {

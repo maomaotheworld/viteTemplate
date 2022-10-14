@@ -17,6 +17,7 @@ export const useStore = defineStore('Main', {
     }),
     getters: { //computed  
         // this 指向 store 本身
+        // 可以 ${store.counter}
         loading: (state) => {
             state.isLoading = !state.isLoading;
         },

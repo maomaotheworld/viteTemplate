@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, provide, reactive } from "vue";
 
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
@@ -26,6 +26,14 @@ const loading = store.isLoading;
 // let goRoute = (string: string) => {
 //   router.push({ name: string });
 // };
+
+// const userData = reactive({
+//   name: "winnie",
+//   age: 24,
+//   address: "桃園",
+// });
+// provide("user", userData);
+// provide後就可以  {{ userData.age }}呼叫
 </script>
 
 <style>
