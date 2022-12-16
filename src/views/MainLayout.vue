@@ -41,20 +41,19 @@ import { computed, PropType, ref, reactive, watchEffect, nextTick } from "vue";
       display: flex;
       width: 100%;
       height: 100%;
-      padding-right: 10px;
-      padding-left: 10px;
-      .SideMenu {
-        margin-left: 1.7%;
 
+      padding-left: 20px;
+      .SideMenu {
         height: 100%;
         width: 14%;
         box-shadow: 0px 4px 8px 4px #eee7e7;
         min-width: 200px;
       }
       .MyLayout {
-        margin-left: 1.11%;
-        margin-right: 0.88%;
+        padding-left: 1.11%;
+        padding-right: 0.88%;
         flex-grow: 1;
+        overflow: hidden;
       }
     }
   }
